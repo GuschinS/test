@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <ng-container *ngFor="let item of emptyData">
+      <div class="card">
+        <div class="card-container">
+          <img src="{{item.snippet.thumbnails.standard.url}}" alt="{{item.snippet.title}}">
+          <div class="statistic">
+            <i class="fa fa-eye"></i>
+            <span>{{item.statistics.viewCount}}</span>
+            <i class="fa fa-thumbs-up"></i>
+            <span>{{item.statistics.likeCount}}</span>
+            <i class="fa fa-thumbs-down"></i>
+            <span>{{item.statistics.dislikeCount}}</span>
+            <i class="fa fa-comment"></i>
+            <span>{{item.statistics.commentCount}}</span>
+          </div>
+          <p>{{item.snippet.title}}</p>
+          <button class="btn">more...</button>
+        </div>
+      </div>
+    </ng-container>
+
+  </div>
+  <mat-paginator [pageSizeOptions]="[5,10,20]" showFirstLastButton></mat-paginator>
+</div>
