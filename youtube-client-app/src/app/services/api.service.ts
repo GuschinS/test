@@ -14,9 +14,9 @@ export class ApiService {
 
   getCard():Observable<CardInfo> {
     return this.http.get<CardInfo>('../../assets/data.json')
-      .pipe(map((res)=>{
-        console.log('res: ', res);
-        return res;
+      .pipe(map((result)=>{
+        console.log('res: ', result);
+        return result;
       }));
   }
 }

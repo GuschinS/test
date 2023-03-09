@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-// import { CardInfo } from 'src/app/model/Card-info';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { CardInfo } from 'src/app/model/Card-info';
 import { ApiService } from '../../services/api.service';
 
 @Component({
@@ -10,9 +12,10 @@ import { ApiService } from '../../services/api.service';
 
 export class CardComponent implements OnInit {
 
-  // protected emptyData!: CardInfo;
-  protected emptyData!: any;
+  protected cards!: any;
+  protected dataSource!: any;
 
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private api : ApiService) { }
 
@@ -21,8 +24,10 @@ export class CardComponent implements OnInit {
   }
 
   getAll(): void {
-    this.api.getCard().subscribe(res => {
-      this.emptyData = res;
+    this.api.getCard().subscribe(result => {
+      this.cards = result;
+      this.dataSource = new MatTableDataSource<CardInfo>(this.cards)
+      this.dataSource.paginator = this.paginator
     });
   }
 

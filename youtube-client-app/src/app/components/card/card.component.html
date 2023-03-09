@@ -1,25 +1,25 @@
 <div class="container">
   <div class="row">
-    <ng-container *ngFor="let item of emptyData">
+    <ng-container *ngFor="let card of cards">
       <div class="card">
         <div class="card-container">
-          <img src="{{item.snippet.thumbnails.standard.url}}" alt="{{item.snippet.title}}">
+          <img src="{{card.snippet.thumbnails.standard.url}}" alt="{{card.snippet.title}}">
           <div class="statistic">
             <i class="fa fa-eye"></i>
-            <span>{{item.statistics.viewCount}}</span>
+            <span>{{card.statistics.viewCount}}</span>
             <i class="fa fa-thumbs-up"></i>
-            <span>{{item.statistics.likeCount}}</span>
+            <span>{{card.statistics.likeCount}}</span>
             <i class="fa fa-thumbs-down"></i>
-            <span>{{item.statistics.dislikeCount}}</span>
+            <span>{{card.statistics.dislikeCount}}</span>
             <i class="fa fa-comment"></i>
-            <span>{{item.statistics.commentCount}}</span>
+            <span>{{card.statistics.commentCount}}</span>
           </div>
-          <p>{{item.snippet.title}}</p>
+          <p>{{card.snippet.title}}</p>
           <button class="btn">more...</button>
         </div>
       </div>
     </ng-container>
 
   </div>
-  <mat-paginator [pageSizeOptions]="[5,10,20]" showFirstLastButton></mat-paginator>
+  <mat-paginator [pageSizeOptions]="[5, 10]" showFirstLastButton></mat-paginator>
 </div>
