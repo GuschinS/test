@@ -15,11 +15,10 @@
             <span>{{card.statistics.commentCount}}</span>
           </div>
           <p>{{card.snippet.title}}</p>
-          <button class="btn" routerLink="/description">more...</button>
+          <button class="btn" routerLink="/description/{{card.id}}" (click)="going(card.id)">more...</button>
         </div>
       </div>
     </ng-container>
-
   </div>
   <mat-paginator [pageSizeOptions]="[5, 10]" showFirstLastButton></mat-paginator>
 </div>

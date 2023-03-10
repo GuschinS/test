@@ -21,9 +21,11 @@ export class CardComponent implements OnInit {
 
   protected searchKey = '';
 
+  indexCard?: number;
+
   @ViewChild(MatPaginator) paginator !: MatPaginator;
 
-  constructor(private api : ApiService, private SearchService : SearchService) { }
+  constructor(private api : ApiService, private searchService : SearchService) { }
 
   ngOnInit(): void {
     this.getAll();
@@ -36,9 +38,18 @@ export class CardComponent implements OnInit {
       this.dataSource = new MatTableDataSource<DataType>(this.cards);
       this.dataSource.paginator = this.paginator;
     });
-    this.SearchService.search.subscribe((val:string)=>{
+    this.searchService.search.subscribe((val:string)=>{
       this.searchKey = val;
     });
   }
 
+  going(id: string) {
+    this.cards.forEach((el, index) => {
+      if (el.id === id) {
+        this.indexCard = index;
+        this.searchService.index.next(this.indexCard);
+        this.searchService.id.next(id);
+      }
+    });
+  }
 }

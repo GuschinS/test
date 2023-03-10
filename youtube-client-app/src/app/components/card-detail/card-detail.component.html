@@ -1,0 +1,16 @@
+<div class="card-container">
+  <img src="{{cards[index].snippet.thumbnails.standard.url}}" alt="{{cards[index].snippet.title}}">
+  <div class="statistic">
+    <i class="fa fa-eye"></i>
+    <span>{{cards[index].statistics.viewCount}}</span>
+    <i class="fa fa-thumbs-up"></i>
+    <span>{{cards[index].statistics.likeCount}}</span>
+    <i class="fa fa-thumbs-down"></i>
+    <span>{{cards[index].statistics.dislikeCount}}</span>
+    <i class="fa fa-comment"></i>
+    <span>{{cards[index].statistics.commentCount}}</span>
+  </div>
+  <p>{{cards[index].snippet.title}}</p>
+  <p>{{cards[index].snippet.description}}</p>
+  <button class="btn" routerLink="/list">back</button>
+</div>

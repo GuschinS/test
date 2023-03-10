@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from '../material-module';
 import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './shared/filter.pipe';
+import { CardDetailComponent } from './components/card-detail/card-detail.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FilterPipe } from './shared/filter.pipe';
     SortingComponent,
     CardComponent,
     FilterPipe,
+    CardDetailComponent,
   ],
   imports: [
     BrowserModule,
