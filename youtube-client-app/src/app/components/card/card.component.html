@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <ng-container *ngFor="let card of cards">
-      <div class="card">
+    <ng-container *ngFor="let card of cards | filter:searchKey:'title'">
+      <div class=" card">
         <div class="card-container">
           <img src="{{card.snippet.thumbnails.standard.url}}" alt="{{card.snippet.title}}">
           <div class="statistic">
@@ -15,7 +15,7 @@
             <span>{{card.statistics.commentCount}}</span>
           </div>
           <p>{{card.snippet.title}}</p>
-          <button class="btn">more...</button>
+          <button class="btn" routerLink="/description">more...</button>
         </div>
       </div>
     </ng-container>

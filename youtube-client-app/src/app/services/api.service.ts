@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
-import { CardInfo } from '../model/Card-info';
+// import { HttpClient } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { DataType } from '../model/Data';
+import { DATA } from '../data';
 
 @Injectable({
   providedIn: 'root',
@@ -10,13 +10,12 @@ import { CardInfo } from '../model/Card-info';
 
 export class ApiService {
 
-  constructor(private http : HttpClient) { }
+  // url = '../../assets/data.json';
+  // data = this.http.get<DataType>(this.url)
+  // constructor(private http : HttpClient) { }
 
-  getCard():Observable<CardInfo> {
-    return this.http.get<CardInfo>('../../assets/data.json')
-      .pipe(map((result)=>{
-        console.log('res: ', result);
-        return result;
-      }));
+  getCard():Observable<DataType[]> {
+    const cards = of(DATA);
+    return cards;
   }
 }

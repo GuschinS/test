@@ -9,6 +9,8 @@ import { SortingComponent } from './components/sorting/sorting.component';
 import { CardComponent } from './components/card/card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from '../material-module';
+import { FormsModule } from '@angular/forms';
+import { FilterPipe } from './shared/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,7 @@ import { MaterialModule } from '../material-module';
     HeaderComponent,
     SortingComponent,
     CardComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -23,6 +26,7 @@ import { MaterialModule } from '../material-module';
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

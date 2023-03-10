@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { CardInfo } from 'src/app/model/Card-info';
+import { DataType } from 'src/app/model/Data';
 import { ApiService } from '../../services/api.service';
+import { SearchService } from 'src/app/services/search.service';
 
 @Component({
   selector: 'app-card',
@@ -12,22 +13,31 @@ import { ApiService } from '../../services/api.service';
 
 export class CardComponent implements OnInit {
 
-  protected cards!: any;
-  protected dataSource!: any;
+  protected cards: DataType[] = [];
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  protected dataSource!: MatTableDataSource<DataType>;
 
-  constructor(private api : ApiService) { }
+  protected filterCategory!: DataType[];
+
+  protected searchKey = '';
+
+  @ViewChild(MatPaginator) paginator !: MatPaginator;
+
+  constructor(private api : ApiService, private SearchService : SearchService) { }
 
   ngOnInit(): void {
     this.getAll();
   }
 
   getAll(): void {
-    this.api.getCard().subscribe(result => {
-      this.cards = result;
-      this.dataSource = new MatTableDataSource<CardInfo>(this.cards)
-      this.dataSource.paginator = this.paginator
+    this.api.getCard().subscribe(cards => {
+      this.cards = cards;
+      this.filterCategory = cards;
+      this.dataSource = new MatTableDataSource<DataType>(this.cards);
+      this.dataSource.paginator = this.paginator;
+    });
+    this.SearchService.search.subscribe((val:string)=>{
+      this.searchKey = val;
     });
   }
 

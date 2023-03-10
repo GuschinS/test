@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./sorting.component.scss'],
 })
 export class SortingComponent {
-
+  // filter(category:string) {
+  // this.filterCategory = this.cards
+  //   .filter((a:any)=>{
+  //     if (a.category == category || category == '') {
+  //       return a;
+  //     }
+  //   });
+  // }
 }

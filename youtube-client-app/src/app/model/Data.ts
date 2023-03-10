@@ -1,9 +1,9 @@
-export interface CardInfo {
+export interface DataType  {
   kind?: string;
   etag?: string;
   id?: string;
-  snippet?: {
-    publishedAt: Date;
+  snippet: {
+    publishedAt: string;
     channelId: string;
     title: string;
     description: string;
@@ -38,6 +38,7 @@ export interface CardInfo {
     tags: string[];
     categoryId: string;
     liveBroadcastContent: string;
+    defaultLanguage?: string;
     localized: {
       title: string;
       description: string
