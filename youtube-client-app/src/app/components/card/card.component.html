@@ -5,13 +5,13 @@
         <div class="card-container">
           <img src="{{card.snippet.thumbnails.standard.url}}" alt="{{card.snippet.title}}">
           <div class="statistic">
-            <i class="fa fa-eye"></i>
+            <span class="viewed"></span>
             <span>{{card.statistics.viewCount}}</span>
-            <i class="fa fa-thumbs-up"></i>
+            <span class="like"></span>
             <span>{{card.statistics.likeCount}}</span>
-            <i class="fa fa-thumbs-down"></i>
+            <span class="dislike"></span>
             <span>{{card.statistics.dislikeCount}}</span>
-            <i class="fa fa-comment"></i>
+            <span class="comment"></span>
             <span>{{card.statistics.commentCount}}</span>
           </div>
           <p>{{card.snippet.title}}</p>
