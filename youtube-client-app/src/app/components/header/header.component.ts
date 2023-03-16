@@ -10,11 +10,11 @@ import { SearchService } from 'src/app/services/search.service';
 export class HeaderComponent {
 
   public searchTerm !: string;
+  public showSort = false;
 
   constructor(private searchService : SearchService) {}
 
   searching(event: KeyboardEvent) {
-    console.log('event: ', event);
     this.searchTerm = (event.target as HTMLInputElement).value;
     this.searchService.search.next(this.searchTerm);
   }

@@ -6,11 +6,11 @@
         placeholder="What are you want to find out?">
       <button class="search">search</button>
     </div>
-    <div class="option"></div>
+    <div class="option" (click)="showSort = !showSort"></div>
     <div class="login">
       <span>Your Name</span>
       <div class="login-button"></div>
     </div>
-
   </div>
 </header>
+<app-sorting *ngIf="showSort"></app-sorting>
