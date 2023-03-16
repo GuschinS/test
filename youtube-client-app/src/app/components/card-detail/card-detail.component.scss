@@ -20,7 +20,7 @@
     justify-content: space-between;
   }
   .title {
-    width: 248px;
+    width: 280px;
     font-weight: 700;
     font-size: 24px;
     line-height: 28px;
@@ -37,10 +37,11 @@
     color: #828282;
     height: 215px;
     overflow-y: auto;
+    padding-top: 5px;
   }
   .statistic {
     position: absolute;
-    bottom: 35px;
+    bottom: 30px;
     left: 25%;
     width: 200px;
     .viewed {
