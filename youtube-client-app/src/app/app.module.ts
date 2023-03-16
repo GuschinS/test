@@ -12,6 +12,7 @@ import { MaterialModule } from '../material-module';
 import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './shared/filter.pipe';
 import { CardDetailComponent } from './components/card-detail/card-detail.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { CardDetailComponent } from './components/card-detail/card-detail.compon
     HttpClientModule,
     MaterialModule,
     FormsModule,
+    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

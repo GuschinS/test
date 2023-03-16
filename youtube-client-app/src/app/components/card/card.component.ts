@@ -1,9 +1,11 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { DataType } from 'src/app/model/Data';
 import { ApiService } from '../../services/api.service';
 import { SearchService } from 'src/app/services/search.service';
+import { Observable } from 'rxjs';
+import {DATA} from '../../data'
 
 @Component({
   selector: 'app-card',
@@ -11,11 +13,9 @@ import { SearchService } from 'src/app/services/search.service';
   styleUrls: ['./card.component.scss'],
 })
 
-export class CardComponent implements OnInit {
+export class CardComponent implements OnInit, OnDestroy {
 
   protected cards: DataType[] = [];
-
-  protected dataSource!: MatTableDataSource<DataType>;
 
   protected filterCategory!: DataType[];
 
@@ -23,9 +23,13 @@ export class CardComponent implements OnInit {
 
   protected indexCard?: number;
 
-  @ViewChild(MatPaginator) paginator !: MatPaginator;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private api : ApiService, private searchService : SearchService) { }
+  protected obs!: Observable<any>;
+
+  protected dataSource: MatTableDataSource<DataType> = new MatTableDataSource<DataType>(DATA);
+
+  constructor(private api : ApiService, private searchService : SearchService, private changeDetectorRef: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.getAll();
@@ -35,9 +39,12 @@ export class CardComponent implements OnInit {
     this.api.getCard().subscribe(cards => {
       this.cards = cards;
       this.filterCategory = cards;
-      this.dataSource = new MatTableDataSource<DataType>(this.cards);
+      this.changeDetectorRef.detectChanges();
       this.dataSource.paginator = this.paginator;
+      this.obs = this.dataSource.connect();
+
     });
+
     this.searchService.search.subscribe((val:string)=>{
       this.searchKey = val;
     });
@@ -51,5 +58,11 @@ export class CardComponent implements OnInit {
         this.searchService.id.next(id);
       }
     });
+  }
+
+    ngOnDestroy() {
+    if (this.dataSource) {
+      this.dataSource.disconnect();
+    }
   }
 }
