@@ -21,7 +21,7 @@ export class CardComponent implements OnInit {
 
   protected searchKey = '';
 
-  indexCard?: number;
+  protected indexCard?: number;
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
 

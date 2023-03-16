@@ -16,6 +16,12 @@ export class CardDetailComponent implements OnInit {
 
   protected id = '';
 
+  protected date?: Date;
+
+  protected options?: {[key: string]: string};
+
+  protected formattedDate?: string;
+
   constructor(private api : ApiService, private searchService : SearchService) { }
 
   ngOnInit(): void {
@@ -30,6 +36,13 @@ export class CardDetailComponent implements OnInit {
     this.searchService.id.subscribe((val:string)=>{
       this.id = val;
     });
+
+    this.createDate()
   }
 
+  createDate(): void {
+      this.date = new Date(this.cards[this.index].snippet.publishedAt)
+      this.options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      this.formattedDate = this.date.toLocaleDateString('en-US', this.options);
+}
 }
