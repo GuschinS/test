@@ -15,7 +15,8 @@
             <span>{{card.statistics.commentCount}}</span>
           </div>
           <p>{{card.snippet.title}}</p>
-          <button class="btn" routerLink="/description/{{card.id}}" (click)="going(card.id)">more...</button>
+          <button *ngIf="card.id" class="btn" routerLink="/description/{{card.id}}"
+            (click)="going(card.id)">more...</button>
         </div>
       </div>
     </ng-container>

@@ -6,18 +6,20 @@ import { DataType } from '../model/Data';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(value: any[], filterString: string, propName:string) {
+  transform(value: DataType[], filterString: string, propName: keyof DataType['snippet']): DataType[] {
     const result: DataType[] = [];
-    if (!value || filterString === '' || propName === '') {
+
+    if (!value || filterString === '' || !propName) {
+
       return value;
     }
+    value.forEach((item: DataType) => {
 
-    value.forEach((item)=>{
-      if (item.snippet[propName].trim().toLowerCase().includes(filterString.toLowerCase())) {
+      if (item.snippet[propName]?.toString().trim().toLowerCase().includes(filterString.toLowerCase())) {
+
         result.push(item);
       }
     });
-
 
     return result;
   }
