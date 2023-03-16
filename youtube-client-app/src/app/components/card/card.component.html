@@ -1,6 +1,7 @@
+<app-header></app-header>
 <div class="container">
   <div class="row">
-    <ng-container *ngFor="let card of obs | async | filter:searchKey:'title'">
+    <ng-container *ngFor="let card of cards | filter:searchKey:'title'">
       <div class=" card">
         <div class="card-container">
           <img src="{{card.snippet.thumbnails.standard.url}}" alt="{{card.snippet.title}}">
@@ -21,5 +22,4 @@
       </div>
     </ng-container>
   </div>
-  <mat-paginator [pageSizeOptions]="[5, 10, 15, 20, 25, 30]"></mat-paginator>
 </div>

@@ -1,11 +1,7 @@
-import { Component, OnInit, OnDestroy, ViewChild, ChangeDetectorRef } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
+import { Component, OnInit } from '@angular/core';
 import { DataType } from 'src/app/model/Data';
 import { ApiService } from '../../services/api.service';
 import { SearchService } from 'src/app/services/search.service';
-import { Observable } from 'rxjs';
-import {DATA} from '../../data'
 
 @Component({
   selector: 'app-card',
@@ -13,7 +9,7 @@ import {DATA} from '../../data'
   styleUrls: ['./card.component.scss'],
 })
 
-export class CardComponent implements OnInit, OnDestroy {
+export class CardComponent implements OnInit {
 
   protected cards: DataType[] = [];
 
@@ -23,13 +19,7 @@ export class CardComponent implements OnInit, OnDestroy {
 
   protected indexCard?: number;
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-
-  protected obs!: Observable<any>;
-
-  protected dataSource: MatTableDataSource<DataType> = new MatTableDataSource<DataType>(DATA);
-
-  constructor(private api : ApiService, private searchService : SearchService, private changeDetectorRef: ChangeDetectorRef) { }
+  constructor(private api : ApiService, private searchService : SearchService) { }
 
   ngOnInit(): void {
     this.getAll();
@@ -39,10 +29,6 @@ export class CardComponent implements OnInit, OnDestroy {
     this.api.getCard().subscribe(cards => {
       this.cards = cards;
       this.filterCategory = cards;
-      this.changeDetectorRef.detectChanges();
-      this.dataSource.paginator = this.paginator;
-      this.obs = this.dataSource.connect();
-
     });
 
     this.searchService.search.subscribe((val:string)=>{
@@ -58,11 +44,5 @@ export class CardComponent implements OnInit, OnDestroy {
         this.searchService.id.next(id);
       }
     });
-  }
-
-    ngOnDestroy() {
-    if (this.dataSource) {
-      this.dataSource.disconnect();
-    }
   }
 }
