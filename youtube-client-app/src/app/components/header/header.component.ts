@@ -14,8 +14,8 @@ export class HeaderComponent {
 
   constructor(private searchService : SearchService) {}
 
-  searching(event: KeyboardEvent) {
-    this.searchTerm = (event.target as HTMLInputElement).value;
-    this.searchService.search.next(this.searchTerm);
+    searching(key: string) {
+        this.searchTerm = key;
+        this.searchService.search.next(this.searchTerm);
   }
 }
