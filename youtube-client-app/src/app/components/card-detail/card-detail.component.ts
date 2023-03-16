@@ -18,7 +18,7 @@ export class CardDetailComponent implements OnInit {
 
   protected date?: Date;
 
-  protected options?: {[key: string]: string};
+  protected options?: { [key: string]: string };
 
   protected formattedDate?: string;
 
@@ -37,12 +37,12 @@ export class CardDetailComponent implements OnInit {
       this.id = val;
     });
 
-    this.createDate()
+    this.createDate();
   }
 
   createDate(): void {
-      this.date = new Date(this.cards[this.index].snippet.publishedAt)
-      this.options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-      this.formattedDate = this.date.toLocaleDateString('en-US', this.options);
-}
+    this.date = new Date(this.cards[this.index].snippet.publishedAt);
+    this.options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    this.formattedDate = this.date.toLocaleDateString('en-US', this.options);
+  }
 }

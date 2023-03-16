@@ -5,7 +5,7 @@ import { CardComponent } from './components/card/card.component';
 import { CardDetailComponent } from './components/card-detail/card-detail.component';
 
 const routes: Routes = [
-  {path: 'main', component: HeaderComponent},
+  { path: 'main', component: HeaderComponent },
   { path: 'search', component: CardComponent },
   { path: 'description/:id', component: CardDetailComponent },
   { path: '', redirectTo: '/main', pathMatch: 'full' },

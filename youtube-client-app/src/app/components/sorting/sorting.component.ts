@@ -6,7 +6,7 @@ import { Component, OnChanges, SimpleChanges } from '@angular/core';
   styleUrls: ['./sorting.component.scss'],
 })
 export class SortingComponent implements OnChanges  {
-ngOnChanges(changes: SimpleChanges) {
+  ngOnChanges(changes: SimpleChanges) {
     if (changes['hidden']) {
       if (changes['hidden'].currentValue) {
         // ComponentB is hidden

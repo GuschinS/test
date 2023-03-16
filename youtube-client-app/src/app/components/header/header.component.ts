@@ -10,12 +10,13 @@ import { SearchService } from 'src/app/services/search.service';
 export class HeaderComponent {
 
   public searchTerm !: string;
+
   public showSort = false;
 
   constructor(private searchService : SearchService) {}
 
-    searching(key: string) {
-        this.searchTerm = key;
-        this.searchService.search.next(this.searchTerm);
+  searching(key: string) {
+    this.searchTerm = key;
+    this.searchService.search.next(this.searchTerm);
   }
 }
