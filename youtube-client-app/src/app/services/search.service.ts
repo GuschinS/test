@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SearchService {
-  public search = new Subject<string>();
+  public search = new BehaviorSubject<string>('');
 
-  public index = new Subject<number>();
+  public index = new BehaviorSubject<number>(0);
 
-  public id = new Subject<string>();
+  public id = new BehaviorSubject<string>('');
 
 }
