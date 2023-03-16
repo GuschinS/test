@@ -10,10 +10,8 @@
   border-radius: 5px;
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25));
   .card-container {
-    display: flex;
-    flex-direction: column;
-    height: 94%;
-    justify-content: space-between;
+    position: relative;
+    height: 350px;
     padding: 10px;
   }
   .statistic {
@@ -21,9 +19,29 @@
     justify-content: space-around;
     align-items: center;
     margin-bottom: 10px;
-    span {
-      font-size: 10px;
-      line-height: 12px;
+    .viewed {
+      padding: 8px 10px;
+      background-image: url("../../../assets/svg/viewed.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .like {
+      padding: 8px 10px;
+      background-image: url("../../../assets/svg/liked.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .dislike {
+      padding: 8px 10px;
+      background-image: url("../../../assets/svg/dislike.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .comment {
+      padding: 8px 10px;
+      background-image: url("../../../assets/svg/comments.svg");
+      background-repeat: no-repeat;
+      background-position: center;
     }
   }
   p {
@@ -35,8 +53,9 @@
     color: #4f4f4f;
   }
   .btn {
-    position: relative;
+    position: absolute;
     left: 25%;
+    bottom: 15px;
     width: 120px;
     height: 32px;
     background: #2f80ed;
