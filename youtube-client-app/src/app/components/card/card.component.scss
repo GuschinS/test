@@ -7,9 +7,21 @@
   width: 263px;
   margin: 2%;
   background: #e5e5e5;
-  border-bottom: 5px solid #2f80ed;
+  border-bottom: 5px solid;
   border-radius: 5px;
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25));
+  &.blue {
+    border-color: #2f80ed;
+  }
+  &.green {
+    border-color: #27ae60;
+  }
+  &.yellow {
+    border-color: #f2c94c;
+  }
+  &.red {
+    border-color: #eb5757;
+  }
   .card-container {
     position: relative;
     height: 350px;

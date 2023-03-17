@@ -19,6 +19,12 @@ export class CardComponent implements OnInit {
 
   protected indexCard?: number;
 
+  protected date?: Date;
+
+  protected today: Date = new Date;
+
+  protected diffInDays?: number;
+
   constructor(private api : ApiService, private searchService : SearchService) { }
 
   ngOnInit(): void {
@@ -45,4 +51,18 @@ export class CardComponent implements OnInit {
       }
     });
   }
+
+  checkDate(key: string) {
+    this.date = new Date(key);
+    this.diffInDays = Math.floor((this.today.getTime() - this.date.getTime()) / (1000 * 60 * 60 * 24));
+    if (this.diffInDays < 7) {
+      return 'blue';
+    } else if (this.diffInDays >= 7 && this.diffInDays < 31) {
+      return 'green';
+    } else if (this.diffInDays >= 31 && this.diffInDays < 180) {
+      return 'yellow';
+    }
+    return 'red';
+  }
+
 }

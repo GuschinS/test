@@ -5,6 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class SearchService {
+
   public search = new BehaviorSubject<string>('');
 
   public index = new BehaviorSubject<number>(0);

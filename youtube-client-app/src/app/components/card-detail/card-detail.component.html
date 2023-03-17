@@ -2,7 +2,8 @@
 <div class="card-container">
   <button class="btn" routerLink="/search"></button>
   <img src="{{cards[index].snippet.thumbnails.standard.url}}" alt="{{cards[index].snippet.title}}">
-  <div class="card-text">
+  <div *ngIf="diffInDays" class="card-text"
+    [ngClass]="{'blue': diffInDays < 7, 'green': diffInDays >= 7 && diffInDays < 31, 'yellow': diffInDays >= 31 && diffInDays < 180, 'red': diffInDays >= 180}">
     <div class="card-text-header">
       <h1 class="title">{{cards[index].snippet.title}}</h1>
       <p class="date">{{formattedDate}}</p>

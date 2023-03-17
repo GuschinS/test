@@ -18,7 +18,7 @@ export class CardDetailComponent implements OnInit {
 
   protected date?: Date;
 
-  protected diffInMonths?: number;
+  protected diffInDays?: number;
 
   protected today: Date = new Date;
 
@@ -49,11 +49,6 @@ export class CardDetailComponent implements OnInit {
     this.date = new Date(this.cards[this.index].snippet.publishedAt);
     this.options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     this.formattedDate = this.date.toLocaleDateString('en-US', this.options);
-
-    this.diffInMonths = (this.today.getFullYear() - this.date.getFullYear()) * 12 + (this.today.getMonth() - this.date.getMonth());
-    if (this.diffInMonths === 0) {
-      this.diffInMonths = this.today.getDay() - this.date.getDay()
-    }
-    console.log('diffInMonths: ', this.diffInMonths);
+    this.diffInDays = Math.floor((this.today.getTime() - this.date.getTime()) / (1000 * 60 * 60 * 24));
   }
 }
