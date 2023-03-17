@@ -1,0 +1,23 @@
+<app-header></app-header>
+<div class="card-container">
+  <button class="btn" routerLink="/search"></button>
+  <img src="{{cards[index].snippet.thumbnails.standard.url}}" alt="{{cards[index].snippet.title}}">
+  <div class="card-text">
+    <div class="card-text-header">
+      <h1 class="title">{{cards[index].snippet.title}}</h1>
+      <p class="date">{{formattedDate}}</p>
+    </div>
+    <h2 class="description">Description</h2>
+    <p class="description">{{cards[index].snippet.description}}</p>
+    <div class="statistic">
+      <span class="viewed"></span>
+      <span>{{cards[index].statistics.viewCount}}</span>
+      <span class="like"></span>
+      <span>{{cards[index].statistics.likeCount}}</span>
+      <span class="dislike"></span>
+      <span>{{cards[index].statistics.dislikeCount}}</span>
+      <span class="comment"></span>
+      <span>{{cards[index].statistics.commentCount}}</span>
+    </div>
+  </div>
+</div>
