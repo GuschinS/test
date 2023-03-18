@@ -10,7 +10,7 @@ import { CardComponent } from './components/card/card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from '../material-module';
 import { FormsModule } from '@angular/forms';
-import { FilterPipe } from './shared/filter.pipe';
+import { SearchPipe } from './shared/search.pipe';
 import { CardDetailComponent } from './components/card-detail/card-detail.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
@@ -20,7 +20,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     HeaderComponent,
     SortingComponent,
     CardComponent,
-    FilterPipe,
+    SearchPipe,
     CardDetailComponent,
   ],
   imports: [

@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="container">
   <div class="row">
-    <ng-container *ngFor="let card of cards | filter:searchKey:'title'">
+    <ng-container *ngFor="let card of cards | search:searchKey:'title'">
       <div class="card" [ngClass]="checkDate(card.snippet.publishedAt)">
         <div class="card-container">
           <img src="{{card.snippet.thumbnails.standard.url}}" alt="{{card.snippet.title}}">
