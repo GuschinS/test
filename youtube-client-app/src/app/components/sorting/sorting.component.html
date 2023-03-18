@@ -2,10 +2,8 @@
   <div class="container">
     <span>Sorting by:</span>
     <ul>
-      <li><a href="#">date</a></li>
-      <!-- <li><a href="#" (click)="filter('filter')">date</a></li> -->
-      <li><a href=" #">count of views</a></li>
-      <!-- <li><a href=" #" (click)="filter('filter')">count of views</a></li> -->
+      <li><a (click)="sortCardsByD()">date</a></li>
+      <li><a (click)="sortCardsByV()">count of views</a></li>
     </ul>
     <span class=" link">by word or sentence</span>
     <input type="text" name="sort" id="">

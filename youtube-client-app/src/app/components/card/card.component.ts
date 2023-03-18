@@ -13,8 +13,6 @@ export class CardComponent implements OnInit {
 
   protected cards: DataType[] = [];
 
-  protected filterCategory!: DataType[];
-
   protected searchKey = '';
 
   protected indexCard?: number;
@@ -34,7 +32,6 @@ export class CardComponent implements OnInit {
   getAll(): void {
     this.api.getCard().subscribe(cards => {
       this.cards = cards;
-      this.filterCategory = cards;
     });
 
     this.searchService.search.subscribe((val:string)=>{
