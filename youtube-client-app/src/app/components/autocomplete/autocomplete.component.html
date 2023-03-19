@@ -1,0 +1,9 @@
+<div class="container">
+  <form class="form">
+    <input class="form-control" list="datalistOptions" placeholder="Type to search..."
+      (change)="nameValue($any($event.target).value)">
+    <datalist id="datalistOptions">
+      <option *ngFor="let word of words" [value]="word.name">
+    </datalist>
+  </form>
+</div>

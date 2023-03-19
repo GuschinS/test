@@ -13,6 +13,10 @@ import { FormsModule } from '@angular/forms';
 import { SearchPipe } from './shared/search.pipe';
 import { CardDetailComponent } from './components/card-detail/card-detail.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { AutocompleteComponent } from './components/autocomplete/autocomplete.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,6 +26,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     CardComponent,
     SearchPipe,
     CardDetailComponent,
+    AutocompleteComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +36,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MaterialModule,
     FormsModule,
     MatPaginatorModule,
+    MatAutocompleteModule,
+    MatInputModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

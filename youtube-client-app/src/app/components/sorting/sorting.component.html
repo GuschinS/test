@@ -8,5 +8,6 @@
     <span class=" link">by word or sentence</span>
     <input type="text" name="sort" [(ngModel)]="searchTag" (keyup)="searchEnter($event)"
       (keyup.enter)="sortCardsByEnter()">
+    <app-autocomplete></app-autocomplete>
   </div>
 </div>
