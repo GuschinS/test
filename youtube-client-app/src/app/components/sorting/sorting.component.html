@@ -6,6 +6,7 @@
       <li><a (click)="sortCardsByV()">count of views</a></li>
     </ul>
     <span class=" link">by word or sentence</span>
-    <input type="text" name="sort" id="">
+    <input type="text" name="sort" [(ngModel)]="searchTag" (keyup)="searchEnter($event)"
+      (keyup.enter)="sortCardsByEnter()">
   </div>
 </div>

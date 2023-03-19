@@ -1,7 +1,7 @@
 export interface DataType  {
-  kind?: string;
-  etag?: string;
-  id?: string;
+  kind: string;
+  etag: string;
+  id: string;
   snippet: {
     publishedAt: string;
     channelId: string;
@@ -34,7 +34,7 @@ export interface DataType  {
         height: number
       }
     };
-    channelTitle?: string;
+    channelTitle: string;
     tags: string[];
     categoryId: string;
     liveBroadcastContent: string;
@@ -43,7 +43,7 @@ export interface DataType  {
       title: string;
       description: string
     };
-    defaultAudioLanguage?: string
+    defaultAudioLanguage: string
   };
   statistics: {
     viewCount: string;
@@ -51,5 +51,5 @@ export interface DataType  {
     dislikeCount: string;
     favoriteCount: string;
     commentCount: string
-  }
+  };
 }
